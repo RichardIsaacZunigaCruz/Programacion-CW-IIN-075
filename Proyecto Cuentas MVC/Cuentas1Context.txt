@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Cuentas1.Models;
+
+namespace Cuentas1.Data
+{
+    public class Cuentas1Context : DbContext
+    {
+        public Cuentas1Context (DbContextOptions<Cuentas1Context> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Cuentas1.Models.Cuenta> Cuenta { get; set; } = default!;
+        public DbSet<Cuentas1.Models.Movimiento> Movimiento { get; set; } = default!;
+    }
+}
