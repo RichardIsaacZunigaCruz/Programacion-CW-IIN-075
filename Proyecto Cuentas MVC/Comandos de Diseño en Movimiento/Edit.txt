@@ -1,0 +1,87 @@
+@model Cuentas1.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    body{
+        background-color:khaki;
+    }
+    h1{
+        padding-left:39%;
+    }
+    img{
+       margin-left:43%;
+    }
+    p{
+        padding-left:20%;
+    }
+
+    div.row {
+        background-color: honeydew;
+        width: 110%;
+        border-radius: 50px;
+    }
+
+    label {
+        font-size: 20px;
+        margin-left: 100%;
+    }
+
+    input {
+        margin-left: 100%;
+    }
+
+    button{
+        margin-left:40%;
+    }
+</style>
+
+<h1>Editar Datos</h1>
+<img src="https://cdn-icons-png.flaticon.com/512/10025/10025652.png" width="123px" />
+<p><strong>Pondrás editar tus datos sin ningun problemas y una vez eso, presione el boton "Guardar"</strong></p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" id="formcontrolTipo" placeholder="Agregar Tipo" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concepto" class="control-label"></label>
+                <input asp-for="Concepto" class="form-control" id="formcontrolConcepto" placeholder="Agregar Concepto" />
+                <span asp-validation-for="Concepto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Monto" class="control-label"></label>
+                <input asp-for="Monto" class="form-control" id="formcontrolMonto" placeholder="Agregar Monto" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" id="formcontrolMonto" placeholder="Agregar Fecha" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCuenta" class="control-label"></label>
+                <input asp-for="IdCuenta" class="form-control" id="formcontrolIdCuenta" placeholder="Agregar IdCuenta" />
+                <span asp-validation-for="IdCuenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"><button type="button" class="btn btn-success">Regresar Lista de Datos</button></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

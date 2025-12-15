@@ -1,0 +1,62 @@
+@model Cuentas1.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    dl{
+        background-color:aliceblue;
+    }
+    dl{
+        padding-left:40%;
+    }
+    dd{
+        padding-left:40%;
+    }
+    
+</style>
+<div class="text-center">
+    <h1 class="display-1">Detalles de Datos</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/14931/14931813.png" width="123px" />
+    <p><strong>Puedes revisar los detalles de la cuenta bancaria incluso el monto es importante para todos.</strong></p>
+</div>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Concepto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Concepto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdCuenta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdCuenta)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id"><button type="button" class="btn btn-success">Editar</button></a> |
+    <a asp-action="Index"><button type="button" class="btn btn-primary">Regresar Lista de Datos</button></a>
+</div>
