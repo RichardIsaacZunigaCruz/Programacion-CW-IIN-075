@@ -1,0 +1,90 @@
+@model IEnumerable<Cuentas1.Models.Cuenta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    body{
+        background-color:antiquewhite;
+    }
+    h1{
+        padding:auto;
+        font-size:35px;
+        padding-left:10%;
+    }
+    p.parrafo1{
+        padding-left:5%;
+        font-size:20px
+    }
+    a.btncrear{
+        padding-left:41%;
+        font-size:15px;
+        }
+    img{
+        padding: auto;
+        margin-left: 450px;
+    }
+</style>
+
+<h1 class="display-1">Tabla de Datos de Cuentas</h1>
+<img src="https://static.vecteezy.com/system/resources/previews/016/848/495/original/data-table-icon-free-vector.jpg" width="123px"/>
+<p class="parrafo1"><strong>Puedes editar los datos,ver los detalles de los datos ingresados o puede eliminar todos los datos en la tabla.</strong></p>
+
+<p>
+    <a asp-action="Create" class="btncrear"><button type="button" value="Create New" class="btn btn-primary" />Crear Nuevo</button></a>
+</p>
+<table border="2" class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.creditos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.debitos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.balance)
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creditos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.debitos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.balance)
+            </td>
+                <td>
+                    @(item.balance< 0? "Inactivo" : "Activo")
+                </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id"><button type="button" value="Edit" class="btn btn-success">Editar</button></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><button type="button" value="Details" class="btn btn-warning">Detalles</button></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><button type="button" value="Delete" class="btn btn-danger">Eliminar</button></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

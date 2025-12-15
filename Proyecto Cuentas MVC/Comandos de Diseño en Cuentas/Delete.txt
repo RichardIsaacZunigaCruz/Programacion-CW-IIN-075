@@ -1,0 +1,82 @@
+@model Cuentas1.Models.Cuenta
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    body{
+        background-color:antiquewhite;
+    }
+    h1{
+       margin-left:25%;
+    }
+    img{
+        margin-left:44%;
+    }
+    p{
+        font-size:21px;
+        margin-left:30%;
+    }
+    h4{
+        margin-left:34%;
+    }
+    
+    dt {
+        margin-left: 35%;
+        font-size: 15px;
+    }
+    dl{
+        background-color:floralwhite;
+    }
+
+    dd {
+        margin-left: 45%;
+    }
+</style>
+
+<h1 class="display-1">Eliminar los Datos</h1>
+<img src="https://cdn-icons-png.flaticon.com/128/3807/3807871.png" width="123px"/>
+<p><strong>¿Estas seguro que quieres eliminar estos datos?</strong></p>
+<div>
+    <h4 class="display-4">Cuenta de Datos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creditos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creditos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.debitos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.debitos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.balance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.balance)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index"><buttom type="submit" value="Back to List" class="btn btn-success">Regresar la Lista de Datos</buttom></a>
+    </form>
+</div>
